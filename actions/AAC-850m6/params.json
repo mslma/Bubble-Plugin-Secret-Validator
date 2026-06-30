@@ -1,0 +1,23 @@
+{
+    "category": "data (things)",
+    "display": "Validate Secret",
+    "fields": {
+        "AAD": {
+            "caption": "Value",
+            "doc": "",
+            "editor": "DynamicValue",
+            "name": "value",
+            "rank": 0,
+            "value": "text"
+        }
+    },
+    "return_value": {
+        "AAF": {
+            "caption": "is_valid",
+            "name": "valid",
+            "value": "boolean"
+        }
+    },
+    "type": "server_side",
+    "use_packages": false
+}
