@@ -4,10 +4,55 @@
     "fields": {
         "AAD": {
             "caption": "Value",
-            "doc": "",
+            "doc": "Exact match: the incoming token to compare with the Secret. HMAC: the signature received from the provider (e.g. the X-Hub-Signature-256 or X-Shopify-Hmac-Sha256 header).",
             "editor": "DynamicValue",
             "name": "value",
-            "rank": 0,
+            "rank": 1,
+            "value": "text"
+        },
+        "AAG": {
+            "caption": "Mode",
+            "default_val": "Exact match",
+            "doc": "Exact match compares Value with the Secret. HMAC computes an HMAC of Payload with the Secret and compares it with the signature in Value.",
+            "editor": "Dropdown",
+            "name": "mode",
+            "options": "Exact match,HMAC",
+            "rank": 0
+        },
+        "AAH": {
+            "caption": "Payload",
+            "doc": "HMAC only: the exact content the provider signed, usually the raw request body. Re-serialised JSON will not match.",
+            "editor": "DynamicValue",
+            "name": "payload",
+            "optional": true,
+            "rank": 2,
+            "value": "text"
+        },
+        "AAI": {
+            "caption": "Algorithm",
+            "default_val": "SHA-256",
+            "doc": "HMAC only: the hash algorithm the provider uses.",
+            "editor": "Dropdown",
+            "name": "algorithm",
+            "options": "SHA-256,SHA-1,SHA-512",
+            "rank": 3
+        },
+        "AAJ": {
+            "caption": "Signature encoding",
+            "default_val": "Hex",
+            "doc": "HMAC only: how the signature in Value is encoded (GitHub and Stripe use Hex, Shopify uses Base64).",
+            "editor": "Dropdown",
+            "name": "encoding",
+            "options": "Hex,Base64",
+            "rank": 4
+        },
+        "AAK": {
+            "caption": "Signature prefix",
+            "doc": "HMAC only, optional: a prefix to strip from Value before comparing, e.g. sha256= for GitHub.",
+            "editor": "DynamicValue",
+            "name": "signature_prefix",
+            "optional": true,
+            "rank": 5,
             "value": "text"
         }
     },
